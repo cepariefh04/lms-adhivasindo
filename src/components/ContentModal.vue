@@ -105,7 +105,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Content } from "@/services/store";
+import type { Content, ReadonlyContent } from "@/services/store";
 import { IonIcon } from "@ionic/vue";
 import { closeOutline } from "ionicons/icons";
 import { reactive, ref, watch } from "vue";
@@ -113,7 +113,7 @@ import { reactive, ref, watch } from "vue";
 const props = defineProps<{
   modelValue: boolean;
   isEdit: boolean;
-  editData?: Content | null;
+  editData?: ReadonlyContent | null;
 }>();
 const emit = defineEmits<{
   "update:modelValue": [val: boolean];
@@ -144,7 +144,7 @@ watch(
           body: props.editData.body || "",
           category: props.editData.category || "",
           status: props.editData.status,
-          tags: [...(props.editData.tags || [])],
+          tags: [...Array.from(props.editData.tags || [])],
         });
       } else {
         Object.assign(form, {

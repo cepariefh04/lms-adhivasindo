@@ -16,11 +16,13 @@ export interface Content {
   category: string;
   status: "published" | "draft" | "archived";
   view_count: number;
-  tags: string[];
+  tags: readonly string[];
   author: { name: string };
   emoji?: string;
   bg?: string;
 }
+
+export type ReadonlyContent = Readonly<Content>;
 
 const EMOJI_MAP: Record<string, string> = {
   PEMROGRAMAN: "💻",

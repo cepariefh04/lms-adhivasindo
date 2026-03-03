@@ -122,7 +122,13 @@
 
 <script setup lang="ts">
 import ContentModal from "@/components/ContentModal.vue";
-import { actions, state, type Content } from "@/services/store";
+import {
+  actions,
+  state,
+  type Content,
+  type ReadonlyContent,
+} from "@/services/store";
+
 import { IonContent, IonIcon, IonPage } from "@ionic/vue";
 import {
   addOutline,
@@ -145,7 +151,7 @@ const PER_PG = 6;
 
 const showModal = ref(false);
 const isEdit = ref(false);
-const editData = ref<Content | null>(null);
+const editData = ref<ReadonlyContent | null>(null);
 
 watch(
   () => route.query.q,
@@ -180,7 +186,7 @@ function openCreate() {
   editData.value = null;
   showModal.value = true;
 }
-function openEdit(c: Content) {
+function openEdit(c: ReadonlyContent) {
   isEdit.value = true;
   editData.value = c;
   showModal.value = true;
