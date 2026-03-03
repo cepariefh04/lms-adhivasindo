@@ -1,0 +1,7 @@
+{
+  "name": "lms-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
