@@ -74,9 +74,6 @@
                 ></ion-icon>
                 <ion-icon :icon="mailOutline" class="header-icon"></ion-icon>
                 <ion-buttons slot="end" style="margin-right: 10px">
-                  <ion-button fill="clear" color="dark">
-                    <ion-icon slot="icon-only" :icon="notificationsOutline" />
-                  </ion-button>
                   <div class="tb-avatar">{{ initial }}</div>
                 </ion-buttons>
               </div>
